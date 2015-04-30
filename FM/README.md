@@ -24,3 +24,7 @@ $ gradle build
 2. File -> New -> Java Project
 
     Remember to cancel 'Use default location' and change it to your project root directory
+
+## Reuse Document
+
+[Click here](https://github.com/TJSoftwareReuse/2012T03/tree/master/FM/FM-Reuse Document.md)
