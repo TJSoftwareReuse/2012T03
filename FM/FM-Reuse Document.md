@@ -41,10 +41,24 @@ It will generate a text file containing the warning message
 Log filename format:
 
 ```
+<data:yyyy-MM-dd>_<count>.log
+
 e.g.
 2015-04-30_0.log
+```
 
-<data:yyyy-MM-dd>_<count>.log
+Log file format:
+
+```
+<date:yyyy-MM-dd> No.<count>
+MESSAGE:
+<content:Your warning message>
+
+e.g.
+2015-04-30 No.0
+MESSAGE:
+A test warning message
+
 ```
 
 ## Usage
@@ -66,3 +80,5 @@ fm.generateWarningMessage("[Your message here!]]");
 ## Dependency
 
 [log4j](https://github.com/apache/log4j)
+
+___You may have to download it by yourself___
