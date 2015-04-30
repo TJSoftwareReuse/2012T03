@@ -7,13 +7,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ConfigComponentTest {
+	
+	private ConfigComponent cm;
 
 	@Before
 	public void setUp() throws Exception {
+		cm = new ConfigComponent();
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		cm = null;
 	}
 
 	@Test
