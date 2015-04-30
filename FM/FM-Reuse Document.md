@@ -66,7 +66,7 @@ A test warning message
 Firstly, you should inport [FM.jar](https://github.com/TJSoftwareReuse/2012T03/releases/download/v0.1/FM.jar)
 
 ```java
-immport edu.tongji.FaultManagement;
+import edu.tongji.FaultManagement;
 ```
 
 Then, you don't need to use 'new' keyword for initializing. Just do like this:
