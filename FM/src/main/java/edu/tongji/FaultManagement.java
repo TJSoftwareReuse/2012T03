@@ -8,47 +8,92 @@ import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.log4j.Logger;
+
+/**
+ * FaultManagement is a class which is used for generating error/warning files
+ * 
+ * @author Tom Hu
+ */
 public class FaultManagement {
-    public void generateWarningMessage(String message) {
-        this.generateWarningMessage(message, "./");
-    }
 
-    public void generateWarningMessage(String message, String filepath) {
-        Date now = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat(
-                "yyyy-MM-dd HH:mm:ss");
-        String date = dateFormat.format(now);
-        String filename = date + ".txt";
+	private static final FaultManagement fm = new FaultManagement(); // Singleton
+	private Logger logger = Logger.getLogger(FaultManagement.class);
+	private String currentDate;
+	private long logCount;
 
-        try {
-            File parentDir = new File(filepath);
-            
-            if (!parentDir.exists()) {
-                System.out.println("[Parent directory doesn't exist!]");
-                parentDir.mkdirs();
-            }
-            File warningFile = new File(parentDir, filename);
+	private FaultManagement() {
+		this.currentDate = new SimpleDateFormat("yyyy-MM-dd")
+				.format(new Date());
+		this.logCount = 0;
+	}
 
-            if (!warningFile.exists()) {
-                System.out.println("[File doesn't exist!]");
-                warningFile.createNewFile();
-            }
+	public static FaultManagement getInstance() {
+		return fm;
+	}
 
-            System.out.println("Path: " + warningFile.getPath());
-            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(warningFile.getPath()), "UTF-8"));
-            bw.write(date);
-            bw.newLine();
-            bw.write("MESSAGE:");
-            bw.newLine();
-            bw.write(message);
-            bw.newLine();
-            bw.close();
-            
-            System.out.println("Done!");
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
+	/**
+	 * Generating the error/warning file in default directory
+	 * 
+	 * @param message
+	 *            the error/warning message will be saved in the file
+	 */
+	public void generateWarningMessage(String message) {
+		this.generateWarningMessage(message, "./");
+	}
+
+	/**
+	 * Generating the error/warning file in a specific directory
+	 * 
+	 * @param message
+	 *            the error/warning message will be saved in the file
+	 * @param filepath
+	 *            the specific path for saving the file
+	 */
+	public void generateWarningMessage(String message, String filepath) {
+		Date now = new Date();
+		// SimpleDateFormat dateFormat = new SimpleDateFormat(
+		//		"yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat filenameFormat = new SimpleDateFormat("yyyy-MM-dd");
+		// String dateTime = dateFormat.format(now); // Get current date time
+		String date = filenameFormat.format(now); // Get current date
+		if (date != this.currentDate) {
+			this.logCount = 0;
+		}
+		String filename = date + "_" + (logCount++) + ".log"; // Filename
+
+		try {
+			File parentDir = new File(filepath);
+
+			if (!parentDir.exists()) {
+				logger.debug("Parent directory doesn't exist!");
+				parentDir.mkdirs(); // If the given directory doesn't exist, we
+									// will create a new folder
+			}
+			File warningFile = new File(parentDir, filename);
+
+			if (!warningFile.exists()) {
+				logger.debug("File doesn't exist!");
+				warningFile.createNewFile();
+			}
+
+			logger.debug("Path: " + warningFile.getPath());
+
+			// Write message
+			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
+					new FileOutputStream(warningFile.getPath()), "UTF-8"));
+			bw.write(date + " No." + logCount);
+			bw.newLine();
+			bw.write("MESSAGE:");
+			bw.newLine();
+			bw.write(message);
+			bw.newLine();
+			bw.close();
+
+			logger.debug("Done!");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
