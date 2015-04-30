@@ -14,8 +14,8 @@ $ cd 2012T03
 
 #### Gradle
 
-```
-$ gradle build
+```basj
+$ gradle eclipse # It will generates all Eclipse files.
 ```
 
 #### Configure Eclipse Project
@@ -23,7 +23,7 @@ $ gradle build
 1. Open your Ecipse
 2. File -> New -> Java Project
 
-    Remember to cancel 'Use default location' and change it to your project root directory
+    Remember to cancel 'Use default location' and change it to your project root directory path
 
 ## Reuse Document
 

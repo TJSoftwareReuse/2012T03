@@ -6,10 +6,17 @@
 
 ## Components
 
-#### 1. CM
+#### 1. [CM](https://github.com/TJSoftwareReuse/2012T03/tree/master/CM)
 
-张奕格，代蒙
+- 张奕格(开发 & 测试)
+- 代蒙(文档)
 
-#### 2. FM
+[CM 复用文档](https://github.com/TJSoftwareReuse/2012T03/blob/master/CM/CM%E5%A4%8D%E7%94%A8%E6%96%87%E6%A1%A3.pdf)
 
-胡圣托，邓冰茜，郑勇俊
+#### 2. [FM](https://github.com/TJSoftwareReuse/2012T03/tree/master/FM)
+
+- 胡圣托(开发)
+- 邓冰茜(文档)
+- 郑勇俊(测试)
+
+[FM 复用文档](https://github.com/TJSoftwareReuse/2012T03/blob/master/FM/FM-Reuse%20Document.md)
