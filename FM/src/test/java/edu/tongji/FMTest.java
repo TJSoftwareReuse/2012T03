@@ -74,8 +74,11 @@ public class FMTest {
 			try {
 				FileReader fr = new FileReader(logDir + filename);
 				BufferedReader br = new BufferedReader(fr);
-				while(br.readLine() != null){
-				    content += br.readLine();
+				String line = br.readLine();
+				while(line != null){
+				    content += line;
+				    content += "\n";
+				    line = br.readLine();
 				}
 				br.close();
 				fr.close();
@@ -96,6 +99,7 @@ public class FMTest {
 
 	@Test
 	public void testGenerateWarningMessage() {
+		this.count = 20;
 		String message = "1234567890";
 		String currentDate = new SimpleDateFormat("yyyy-MM-dd")
 				.format(new Date());
@@ -110,8 +114,11 @@ public class FMTest {
 			try {
 				FileReader fr = new FileReader(filename);
 				BufferedReader br = new BufferedReader(fr);
-				while(br.readLine() != null){
-				    content += br.readLine();
+				String line = br.readLine();
+				while(line != null){
+				    content += line;
+				    content += "\n";
+				    line = br.readLine();
 				}
 				br.close();
 				fr.close();

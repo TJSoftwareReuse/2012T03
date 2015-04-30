@@ -57,10 +57,10 @@ public class FaultManagement {
 		SimpleDateFormat filenameFormat = new SimpleDateFormat("yyyy-MM-dd");
 		// String dateTime = dateFormat.format(now); // Get current date time
 		String date = filenameFormat.format(now); // Get current date
-		if (date != this.currentDate) {
+		if (!date.equals(this.currentDate)) {
 			this.logCount = 0;
 		}
-		String filename = date + "_" + (logCount++) + ".log"; // Filename
+		String filename = date + "_" + logCount + ".log"; // Filename
 
 		try {
 			File parentDir = new File(filepath);
@@ -89,6 +89,8 @@ public class FaultManagement {
 			bw.write(message);
 			bw.newLine();
 			bw.close();
+			
+			logCount++;
 
 			logger.debug("Done!");
 		} catch (IOException e) {
