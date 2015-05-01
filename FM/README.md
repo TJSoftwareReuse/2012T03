@@ -3,7 +3,7 @@ Fault Management
 
 ## Usage
 
-```
+```bash
 $ git clone https://github.com/TJSoftwareReuse/2012T03.git
 $ cd 2012T03
 ```
@@ -14,7 +14,7 @@ $ cd 2012T03
 
 #### Gradle
 
-```basj
+```bash
 $ gradle eclipse # It will generates all Eclipse files.
 ```
 
