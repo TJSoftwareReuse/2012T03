@@ -81,4 +81,6 @@ fm.generateWarningMessage("[Your message here!]]");
 
 [log4j](https://github.com/apache/log4j)
 
-___You may have to download it by yourself___
+___You have to download it by yourself, and then import it to your project.___
+
+__Otherwise you will get errors.__
