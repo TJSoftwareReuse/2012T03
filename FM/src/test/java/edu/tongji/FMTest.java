@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.log4j.PropertyConfigurator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,6 +45,7 @@ public class FMTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		PropertyConfigurator.configure("log4j.properties");
 		// Initialize
 		fm = FaultManagement.getInstance();
 	}
