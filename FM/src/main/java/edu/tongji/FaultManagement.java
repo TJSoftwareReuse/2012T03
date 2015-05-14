@@ -95,7 +95,7 @@ public class FaultManagement {
 	 * Set log file size limitation
 	 * 
 	 * @param fileSizeLimitation
-	 *            file size limitation
+	 *            file size limitation (MB)
 	 */
 	public void setLogFileSizeLimitation(long fileSizeLimitation) {
 		if (fileSizeLimitation < 256 || fileSizeLimitation > 4096) {
