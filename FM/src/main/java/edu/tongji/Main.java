@@ -11,8 +11,16 @@ public class Main {
     	PropertyConfigurator.configure("log4j.properties");
     	
         FaultManagement fm = FaultManagement.getInstance();
-        fm.generateWarningMessage("test");
-        fm.generateWarningMessage("test2", "./warning/");
+        for (int i = 0; i < 10000; i++) {
+        	fm.generateWarningMessage("1111111111111111111111111111111111111111111111111111111111111");
+        }
+        
+        
+        fm.setLogDirPath("./warning");
+        fm.generateWarningMessage("test2");
+        fm.generateWarningMessage("test4123");
+        fm.generateWarningMessage("t");
+        fm.generateWarningMessage("test1231231231232");
     }
 
 }

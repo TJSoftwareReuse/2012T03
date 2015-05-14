@@ -67,7 +67,8 @@ public class FMTest {
 		String filenameSuffix = ".log";
 		for (int i = 0; i < 20; i++) {
 			String filename = filenamePrefix + this.count + filenameSuffix;
-			fm.generateWarningMessage(message, logDir);
+			fm.setLogDirPath(logDir);
+			fm.generateWarningMessage(message);
 			String content = "";
 			
 			// Read file & Compare
