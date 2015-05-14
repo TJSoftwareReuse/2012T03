@@ -5,7 +5,7 @@ Reuse Ducument for FM - Team 3
 
 - Requirement
 - Design
-- Input
+- API
 - Output
 - Usage
 
@@ -74,7 +74,7 @@ A test warning message
 
 ## Usage
 
-Firstly, you should import [FM.jar](https://github.com/TJSoftwareReuse/2012T03/releases/download/v1.1/FMv1.1.jar)
+Firstly, you should import [FM.jar](https://github.com/TJSoftwareReuse/2012T03/releases/download/v1.1/FM.jar)
 
 ```java
 import edu.tongji.FaultManagement;
