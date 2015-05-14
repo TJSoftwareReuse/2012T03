@@ -20,7 +20,7 @@ We think that the FM conponent may be used by many other components, so we appli
 
 We also ensured it thread safe, which makes it easy to use.
 
-When you want to use it, you just need to pass one or two parameters - the message content and the path of the directory for saving log files.
+When you want to use it, you just need to pass one parameter - the message content. You can change log directory path and log file size limitation.
 
 ## API
 
