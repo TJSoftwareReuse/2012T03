@@ -24,35 +24,26 @@ When you want to use it, you just need to pass one or two parameters - the messa
 
 ## API
 
-1. 
-```java
-public void generateWarningMessage(String message);
-```
+1. `public void generateWarningMessage(String message);`
 
-	| Parameter | Type | Note |
-	| :------:| :------: | :------: |
-	| Message | String | Warning message |
-	| Filepath | String | (Optional) |
+    | Parameter | Type | Note |
+    | :------:| :------: | :------: |
+    | Message | String | Warning message |
+    | Filepath | String | (Optional) |
 
-2. 
-```java
-public void setLogDirPath(String dirPath);
-```
+2. `public void setLogDirPath(String dirPath);`
 
-	| Parameter | Type | Note |
-	| :------:| :------: | :------: |
-	| Directory Path | String |  |
+    | Parameter | Type | Note |
+    | :------:| :------: | :------: |
+    | Directory Path | String |  |
 
-	Default directory path is `./log`.
+    Default directory path is `./log`.
 
-3. 
-```java
-public void setLogFileSizeLimitation(long fileSizeLimitation);
-```
+3. `public void setLogFileSizeLimitation(long fileSizeLimitation);`
 
-	| Parameter | Type | Note |
-	| :------:| :------: | :------: |
-	| File Size Limitation | Integer | The unit is 'MB' (>= 256 and <= 4096) |
+    | Parameter | Type | Note |
+    | :------:| :------: | :------: |
+    | File Size Limitation | Integer | The unit is 'MB' (>= 256 and <= 4096) |
 
 ## Output
 
