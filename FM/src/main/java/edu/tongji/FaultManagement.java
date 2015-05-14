@@ -61,7 +61,6 @@ public class FaultManagement {
 				logger.error("Log directory path: "
 						+ this.currentLogDir.getCanonicalPath());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			return;
@@ -79,7 +78,6 @@ public class FaultManagement {
 			logger.info("Log directory path: "
 					+ this.currentLogDir.getCanonicalPath());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -157,7 +155,7 @@ public class FaultManagement {
 		}
 	}
 
-	private void writeToLogFile(String message) {
+	private synchronized void writeToLogFile(String message) {
 		Date now = new Date();
 		SimpleDateFormat dateTimeFormat = new SimpleDateFormat(
 				"yyyy-MM-dd HH:mm:ss");
@@ -201,6 +199,21 @@ public class FaultManagement {
 	 *            the error/warning message will be saved in the file
 	 */
 	public void generateWarningMessage(String message) {
+		this.writeToLogFile(message);
+	}
+
+	/**
+	 * Generate the error/warning file in default directory
+	 * 
+	 * @param message
+	 *            the error/warning message will be saved in the file
+	 * @param logDirPath
+	 *            the directory where log file is saved
+	 */
+	@Deprecated
+	public void generateWarningMessage(String message, String logDirPath) {
+		this.setLogDirPath(logDirPath);
+
 		this.writeToLogFile(message);
 	}
 }

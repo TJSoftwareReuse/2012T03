@@ -36,7 +36,7 @@ public class ConfigComponent implements ConfigInterface {
 	}
 
 	/**
-	 * Read all the information fron the configuration file
+	 * Read all the information from the configuration file
 	 * 
 	 * @param filePath
 	 *            the configuration file path
