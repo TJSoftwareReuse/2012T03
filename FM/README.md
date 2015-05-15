@@ -27,4 +27,5 @@ $ gradle eclipse # It will generates all Eclipse files.
 
 ## Reuse Document
 
-[Click here](https://github.com/TJSoftwareReuse/2012T03/tree/master/FM/FM-Reuse Document.md)
+- [CN Version](https://github.com/TJSoftwareReuse/2012T03/blob/master/FM/FM-Reuse%20Document-cn.md)
+- [EN Version](https://github.com/TJSoftwareReuse/2012T03/blob/master/FM/FM-Reuse%20Document-en.md)

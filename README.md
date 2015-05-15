@@ -19,4 +19,13 @@
 - 邓冰茜(文档)
 - 郑勇俊(测试)
 
-[FM 复用文档](https://github.com/TJSoftwareReuse/2012T03/blob/master/FM/FM-Reuse%20Document.md)
+[FM 复用文档 中文版](https://github.com/TJSoftwareReuse/2012T03/blob/master/FM/FM-Reuse%20Document-cn.md)
+[FM 复用文档 英文版](https://github.com/TJSoftwareReuse/2012T03/blob/master/FM/FM-Reuse%20Document-en.md)
+
+#### 3. [License](https://github.com/TJSoftwareReuse/2012T10)
+
+#### 4. [PM](https://github.com/TJSoftwareReuse/2012T10)
+
+## Application
+
+#### [Query Server](https://github.com/TJSoftwareReuse/2012T03/tree/master/QueryServer)

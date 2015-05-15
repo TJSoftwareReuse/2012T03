@@ -82,7 +82,7 @@ FM复用文档 - 第三组
 
 ## 用法
 
-首先得导入[FM.jar](https://github.com/TJSoftwareReuse/2012T03/releases/download/v1.1/FM.jar)包
+首先得导入[FM.jar](https://github.com/TJSoftwareReuse/2012T03/releases/download/v1.2/FM.jar)包
 
 ```java
 import edu.tongji.FaultManagement;

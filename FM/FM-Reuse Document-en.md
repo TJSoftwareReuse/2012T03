@@ -84,7 +84,7 @@ It will generate a text file and each message will be appended to it.
 
 ## Usage
 
-Firstly, you should import [FM.jar](https://github.com/TJSoftwareReuse/2012T03/releases/download/v1.1/FM.jar)
+Firstly, you should import [FM.jar](https://github.com/TJSoftwareReuse/2012T03/releases/download/v1.2/FM.jar)
 
 ```java
 import edu.tongji.FaultManagement;
