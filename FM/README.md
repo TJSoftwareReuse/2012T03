@@ -5,7 +5,7 @@ Fault Management
 
 ```bash
 $ git clone https://github.com/TJSoftwareReuse/2012T03.git
-$ cd 2012T03
+$ cd 2012T03/FM
 ```
 
 #### Install Gradle
@@ -20,10 +20,10 @@ $ gradle eclipse # It will generates all Eclipse files.
 
 #### Configure Eclipse Project
 
-1. Open your Ecipse
-2. File -> New -> Java Project
-
-    Remember to cancel 'Use default location' and change it to your project root directory path
+1. Open `Eclipse`
+2. `File` -> `Import`
+3. Choose `General` -> `Existing Projects into Workspace`
+4. Select root directory
 
 ## Reuse Document
 
