@@ -31,3 +31,7 @@
 ## Application
 
 #### [Query Server](https://github.com/TJSoftwareReuse/2012T03/tree/master/QueryServer)
+
+- 开发: 胡圣托
+- 文档: 张奕格，邓冰茜
+- 测试: 郑勇俊，代蒙
