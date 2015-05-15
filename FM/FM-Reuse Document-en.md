@@ -8,30 +8,34 @@ Reuse Ducument for FM - Team 3
 - API
 - Output
 - Usage
+- Dependency
 
 ## Requirement
 
 1. Receiving the warning message
-2. Generating files for each warning messages
+2. Writing warning messages to the log file
+3. Setting log directory path
+4. Setting log file size limitation
 
 ## Design
 
 We think that the FM conponent may be used by many other components, so we applied singleton pattern on this class.
 
-We also ensured it thread safe, which makes it easy to use.
+We also ensured the creationg of the singleton and the file writing operation thread safe, which makes it easy to use.
 
 When you want to use it, you just need to pass one parameter - the message content. You can change log directory path and log file size limitation.
 
 ## API
 
 1. `public void generateWarningMessage(String message);`
+2. `public void generateWarningMessage(String message, String logDirPath);` (Deprecated)
 
     | Parameter | Type | Note |
     | :------:| :------: | :------: |
     | Message | String | Warning message |
     | Filepath | String | (Optional) |
 
-2. `public void setLogDirPath(String dirPath);`
+3. `public void setLogDirPath(String dirPath);`
 
     | Parameter | Type | Note |
     | :------:| :------: | :------: |
@@ -39,7 +43,9 @@ When you want to use it, you just need to pass one parameter - the message conte
 
     Default directory path is `./log`.
 
-3. `public void setLogFileSizeLimitation(long fileSizeLimitation);`
+    If the directory you assigned doesn't exist, it will be created.
+
+4. `public void setLogFileSizeLimitation(long fileSizeLimitation);`
 
     | Parameter | Type | Note |
     | :------:| :------: | :------: |
@@ -49,28 +55,32 @@ When you want to use it, you just need to pass one parameter - the message conte
 
 It will generate a text file and each message will be appended to it.
 
-Log filename format:
+- Log filename format:
 
-```
-<data:yyyy-MM-dd>_<count>.log
+    ```
+    <data:yyyy-MM-dd>_<count>.log
 
-e.g.
-2015-04-30_1.log
-```
+    e.g.
+    2015-04-30_1.log
+    ```
 
-Log message format:
+    `count` begins at 1, if current log file exceeds the size limitation, `count` will increase by 1.
 
-```
-<yyyy-MM-dd HH:mm:ss>
-MESSAGE:
-<content:Your warning message>
+    When the log directory is changed, `count` will start over at 1.
 
-e.g.
-2015-04-30 15:30:00
-MESSAGE:
-A test warning message
+- Log message format:
 
-```
+    ```
+    <yyyy-MM-dd HH:mm:ss>
+    MESSAGE:
+    <content:Your warning message>
+
+    e.g.
+    2015-04-30 15:30:00
+    MESSAGE:
+    A test warning message
+
+    ```
 
 ## Usage
 
@@ -83,11 +93,11 @@ import edu.tongji.FaultManagement;
 Then, you don't need to use 'new' keyword for initializing. Just do like this:
 
 ```java
-FaultManagement fm = FaultManagement.getInstance();
+FaultManagement fm = FaultManagement.getInstance(); // Get the singleton instance
 
-fm.setLogDirPath("./warning");
-fm.setLogFileSizeLimitation(512);
-fm.generateWarningMessage("[Your message here!]]");
+fm.setLogDirPath("./warning"); // Change the log directory
+fm.setLogFileSizeLimitation(512); // Change the size limitation
+fm.generateWarningMessage("[Your message here!]]"); // Append message to the log file
 ```
 
 ## Dependency
