@@ -100,6 +100,7 @@ public class TJServer implements TJServerInterface {
 			InputStream in = new BufferedInputStream(new FileInputStream(
 					studentInfoFilepath));
 			this.studentInfo.load(in);
+			in.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -128,7 +129,7 @@ public class TJServer implements TJServerInterface {
 		logger.info("Provide service!");
 		
 		// FM
-		this.fm.generateWarningMessage("Provide service!");
+		this.fm.generateWarningMessage("Query <" + studentName + ">. Provide service!");
 		
 		// PM
 		this.pm.AddData("NumberOfProvidedService", 1);
