@@ -89,6 +89,8 @@ public interface TJServerInterface extends Remote {
 
     其中`localhost`可以替换为相应的服务端IP地址, `2015`为服务端指定好的端口号
 
+    另外，值得注意的是，此时服务端务必处于运行状态
+
 #### 返回值说明
 
 `query`函数的返回值有三种情况(均为`String`类型)，如下:
