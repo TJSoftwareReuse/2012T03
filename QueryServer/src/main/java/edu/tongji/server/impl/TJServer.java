@@ -94,7 +94,10 @@ public class TJServer implements TJServerInterface {
 				.getProperty("StudentInfoFilePath");
 		if (studentInfoFilepath == null) {
 			studentInfoFilepath = "./studentInfo.properties"; // Default value
+			this.props = cm.writeProperties(configFilepath,
+					"StudentInfoFilePath", "./studentInfo.properties"); // Write back
 		}
+		
 		this.studentInfo = new Properties();
 		try {
 			InputStream in = new BufferedInputStream(new FileInputStream(
@@ -108,33 +111,40 @@ public class TJServer implements TJServerInterface {
 
 	public String query(String studentName) throws RemoteException {
 		logger.debug("Query <" + studentName + ">");
-				
+
 		// PM
 		this.pm.AddData("NumberOfReceivedQuery", 1);
-		
+
 		// License
 		if (!this.li.isProvide_service()) {
 			logger.error("Cannot provide service!");
-			
+
 			// FM
 			this.fm.generateWarningMessage("Deny service!");
-			
+
 			// PM
 			this.pm.AddData("NumberOfDeniedService", 1);
 			this.pm.AddData("NumberOfReturnedMessage", 1);
-			
-			return null;
+
+			return "NO LICENSE";
 		}
-		
+
 		logger.info("Provide service!");
-		
+
 		// FM
-		this.fm.generateWarningMessage("Query <" + studentName + ">. Provide service!");
-		
+		this.fm.generateWarningMessage("Query <" + studentName
+				+ ">. Provide service!");
+
 		// PM
 		this.pm.AddData("NumberOfProvidedService", 1);
 		this.pm.AddData("NumberOfReturnedMessage", 1);
-		
+
+		String team = this.studentInfo.getProperty(studentName);
+
+		if (team == null) {
+			return "NON-EXISTENT";
+		}
+
 		return this.studentInfo.getProperty(studentName);
 	}
 

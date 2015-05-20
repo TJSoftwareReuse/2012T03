@@ -58,6 +58,7 @@ gradle-app.setting
 !gradle-wrapper.jar
 
 *.log
+*.log.*
 log/
 performance/
 
