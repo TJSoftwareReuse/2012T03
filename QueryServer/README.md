@@ -60,4 +60,41 @@ $ gradle eclipse # It will generates all Eclipse files.
 
 ## 使用方法 (用户)
 
+因为本项目基于RMI(Remote Method Invocation, 远程方法调用)开发，所以需要在客户端引入远程对象的接口
 
+其中提供如下接口:
+
+```java
+public interface TJServerInterface extends Remote {
+    public String query(String studentName) throws RemoteException;
+}
+```
+
+过程如下: 
+
+1. 下载jar包
+
+    [TJServer.jar](https://github.com/TJSoftwareReuse/2012T03/releases/download/v1.3/TJServer.jar)
+
+2. 新建Java项目
+3. 引入jar包
+4. 开始使用
+
+    ```java
+    Registry registry = LocateRegistry.getRegistry("localhost", 2015);
+    TJServerInterface serverInterface = (TJServerInterface) registry.lookup("TJServer");
+
+    String team = serverInterface.query("xxx");
+    ```
+
+    其中`localhost`可以替换为相应的服务端IP地址, `2015`为服务端指定好的端口号
+
+#### 返回值说明
+
+`query`函数的返回值有三种情况(均为`String`类型)，如下:
+
+|返回值|说明|
+|:---:|:--:|
+|第X组|X为相应的组号|
+|NO LICENSE|服务端无法提供服务|
+|NON-EXISTENT|所查询的学生姓名在名单上不存在|
