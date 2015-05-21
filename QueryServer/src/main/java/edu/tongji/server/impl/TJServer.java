@@ -30,6 +30,31 @@ public class TJServer implements TJServerInterface {
 
 	private static final String configFilepath = "./config.properties";
 
+	public Properties getprops()
+	{
+		return this.props;
+	}
+
+	public ConfigComponent getcm()
+	{
+		return this.cm;
+	}
+
+	public FaultManagement getfm()
+	{
+		return this.fm;
+	}
+
+	public license getli()
+	{
+		return this.li;
+	}
+
+	public PerformanceManager getpm()
+	{
+		return this.pm;
+	}
+
 	public TJServer() throws RemoteException {
 		// init
 		this.init();

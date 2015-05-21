@@ -19,14 +19,24 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import tj.reuse.ConfigComponent;
+import License.license;
+import PM.PerformanceManager;
+
+import edu.tongji.server.impl.TJServer;
 import edu.tongji.server.stub.TJServerInterface;
 
 public class TJServerTest {
 
 	private TJServerInterface serverInterface;
 	private TJServerInterface serverInterface2;
+	private TJServerInterface serverInterface3;
 
+	
 	private Properties studentInfo;
+
+	private ConfigComponent cm;
+	private Properties props;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -45,8 +55,10 @@ public class TJServerTest {
 		Registry registry = LocateRegistry.getRegistry("localhost", 2015);
 		this.serverInterface = (TJServerInterface) registry.lookup("TJServer");
 		this.serverInterface2 = (TJServerInterface) registry.lookup("TJServer");
+		this.serverInterface3 = (TJServerInterface) registry.lookup("TJServer");
 
 		this.studentInfo = new Properties();
+
 		InputStream in = new BufferedInputStream(new FileInputStream(
 				"./studentInfo.properties"));
 		this.studentInfo.load(in);
@@ -58,13 +70,14 @@ public class TJServerTest {
 		// Destory
 		this.serverInterface = null;
 		this.serverInterface2 = null;
+		this.serverInterface3 = null;
 		this.studentInfo = null;
 	}
 
 	@Test
 	public void pressureTest() {
 		try {
-			for (int i = 0; i < 1000000; i++) {
+			for (int i = 0; i < 1000; i++) {
 				assertEquals(this.studentInfo.getProperty("胡圣托"),
 						this.serverInterface.query("胡圣托"));
 			}
@@ -88,7 +101,19 @@ public class TJServerTest {
 			e.printStackTrace();
 		}
 	}
-	
+
+	@Test
+	public void inittest() throws Exception {
+		cm=serverInterface3.getcm();
+		props=serverInterface3.getprops();
+		
+		assertEquals(props, cm.readProperties("./config.properties"));
+		assertEquals(props.getProperty("LogDirPath"), "./log");
+		assertEquals(props.getProperty("PMDirPath"), "./performance/");
+		assertEquals(props.getProperty("LicenseCapacity"), "100");
+
+	}
+
 	public class MTServerTest extends Thread {
 		
 		private TJServerInterface server;
