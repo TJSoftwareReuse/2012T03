@@ -1,6 +1,7 @@
 package edu.tongji;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -64,8 +65,8 @@ public class TJServerTest {
 	public void pressureTest() {
 		try {
 			for (int i = 0; i < 1000000; i++) {
-				assertEquals(this.studentInfo.getProperty("胡圣托"),
-						this.serverInterface.query("胡圣托"));
+				assertEquals(this.studentInfo.getProperty("鑳″湥鎵�"),
+						this.serverInterface.query("鑳″湥鎵�"));
 			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -74,8 +75,8 @@ public class TJServerTest {
 	
 	@Test
 	public void multiThreadTest() {
-		MTServerTest test1 = new MTServerTest(this.serverInterface, "胡圣托", this.studentInfo.getProperty("胡圣托"));
-		MTServerTest test2 = new MTServerTest(this.serverInterface2, "喻帅", this.studentInfo.getProperty("喻帅"));
+		MTServerTest test1 = new MTServerTest(this.serverInterface, "鑳″湥鎵�", this.studentInfo.getProperty("鑳″湥鎵�"));
+		MTServerTest test2 = new MTServerTest(this.serverInterface2, "鍠诲竻", this.studentInfo.getProperty("鍠诲竻"));
 		
 		test1.start();
 		test2.start();
@@ -116,5 +117,12 @@ public class TJServerTest {
 		}
 		
 	}
+	@Test 
+	public void testQuery(String studentname) {
+		fail("Not yet implemented");
+	}
+	
+	
+	
 
 }
