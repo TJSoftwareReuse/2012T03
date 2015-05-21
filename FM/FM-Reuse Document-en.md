@@ -102,6 +102,8 @@ fm.generateWarningMessage("[Your message here!]]"); // Append message to the log
 
 ## Dependency
 
+Require JDK 1.7
+
 [log4j](https://github.com/apache/log4j)
 
 ___You have to download it by yourself, and then import it to your project.___
