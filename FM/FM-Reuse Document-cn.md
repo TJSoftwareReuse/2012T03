@@ -100,6 +100,8 @@ fm.generateWarningMessage("[Your message here!]]"); // 将告警信息写入文�
 
 ## 依赖
 
+要求JDK 1.7
+
 [log4j](https://github.com/apache/log4j)
 
 ___需要自己下载相应的包，然后导入到项目___
