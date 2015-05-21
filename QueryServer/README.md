@@ -42,7 +42,7 @@ $ gradle eclipse # It will generates all Eclipse files.
 除了上述四个组件，还有以下两个依赖:
 
 - log4j(Version 1.2.17)
-- jUnit(Version 4.11)
+- JUnit(Version 4.11)
 
 (`log4j`版本有点老)
 

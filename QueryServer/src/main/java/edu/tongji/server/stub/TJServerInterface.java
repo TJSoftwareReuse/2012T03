@@ -12,10 +12,10 @@ import tj.reuse.ConfigComponent;
 public interface TJServerInterface extends Remote {
 	
 	public String query(String studentName) throws RemoteException;
-	public Properties getprops() throws RemoteException;
-	public ConfigComponent getcm() throws RemoteException;
-	public FaultManagement getfm() throws RemoteException;
-	public license getli() throws RemoteException;
-	public PerformanceManager getpm() throws RemoteException;
 
+    public Properties getprops() throws RemoteException;
+    public ConfigComponent getcm() throws RemoteException;
+    public FaultManagement getfm() throws RemoteException;
+    public license getli() throws RemoteException;
+    public PerformanceManager getpm() throws RemoteException;
 }

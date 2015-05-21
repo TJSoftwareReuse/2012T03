@@ -20,10 +20,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import tj.reuse.ConfigComponent;
-import License.license;
-import PM.PerformanceManager;
-
-import edu.tongji.server.impl.TJServer;
 import edu.tongji.server.stub.TJServerInterface;
 
 public class TJServerTest {
@@ -72,6 +68,8 @@ public class TJServerTest {
 		this.serverInterface2 = null;
 		this.serverInterface3 = null;
 		this.studentInfo = null;
+		this.cm = null;
+		this.props = null;
 	}
 
 	@Test
@@ -104,8 +102,8 @@ public class TJServerTest {
 
 	@Test
 	public void inittest() throws Exception {
-		cm=serverInterface3.getcm();
-		props=serverInterface3.getprops();
+		this.cm=serverInterface3.getcm();
+ 		this.props=serverInterface3.getprops();
 		
 		assertEquals(props, cm.readProperties("./config.properties"));
 		assertEquals(props.getProperty("LogDirPath"), "./log");
