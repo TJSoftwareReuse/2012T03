@@ -12,6 +12,17 @@ $ cd 2012T03/QueryServer
 
 #### 1. 下载依赖包
 
+- [CM.jar](https://github.com/TJSoftwareReuse/DeliverComponents/raw/master/CM/T3/1.0/CM.jar) by [Team 3](https://github.com/TJSoftwareReuse/2012T03/tree/master/CM)
+- [FM.jar](https://github.com/TJSoftwareReuse/2012T03/releases/download/v1.2/FM.jar) by [Team 3](https://github.com/TJSoftwareReuse/2012T03/tree/master/FM)
+- [License.jar](https://github.com/TJSoftwareReuse/DeliverComponents/raw/master/License/T10/1.0/License.jar) by [Team 10](https://github.com/TJSoftwareReuse/2012T10)
+- [PM.jar](https://github.com/TJSoftwareReuse/DeliverComponents/raw/master/PM/T10/1.0/PerformanceManager.jar) by [Team 10](https://github.com/TJSoftwareReuse/2012T10)
+- Gson 2.3.1
+- JUnit 4.11
+- log4j 1.2.17
+    - hamcrest core 1.3
+
+所有的依赖项均已上传至百度盘
+
 链接: <http://pan.baidu.com/s/1qWHpiG0>
 
 密码: gbib
