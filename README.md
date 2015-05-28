@@ -35,3 +35,9 @@
 - 开发: 胡圣托
 - 文档: 张奕格，邓冰茜
 - 测试: 郑勇俊，代蒙
+
+#### [Query Server 2](https://github.com/TJSoftwareReuse/2012T03/tree/master/QueryServer2)
+
+- 开发: 胡圣托
+- 文档: 张奕格，邓冰茜
+- 测试：郑勇俊，代蒙
