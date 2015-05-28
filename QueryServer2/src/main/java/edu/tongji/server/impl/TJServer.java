@@ -1,6 +1,7 @@
 package edu.tongji.server.impl;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -77,6 +78,10 @@ public class TJServer implements TJServerInterface {
 			pmDirPath = "./performance/"; // Default value
 			this.props = cm.writeProperties(configFilepath, "PMDirPath",
 					pmDirPath); // Write back
+		}
+		File pmDir = new File(pmDirPath);
+		if (!pmDir.exists()) {
+			pmDir.mkdirs();
 		}
 		this.pm = new PerformanceManager(pmDirPath);
 	}
