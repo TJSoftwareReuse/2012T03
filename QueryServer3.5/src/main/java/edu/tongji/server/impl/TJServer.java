@@ -37,7 +37,7 @@ public class TJServer implements TJServerInterface {
 	private Logger logger = Logger.getLogger(TJServer.class);
 
 	private static final String configFilepath = "./config.properties";
-	
+
 	private String previousFMMessage = null;
 
 	public TJServer() throws RemoteException {
@@ -92,7 +92,7 @@ public class TJServer implements TJServerInterface {
 
 	private void initLicense() {
 		this.lm = LicenseManager.getInstance();
-		
+
 		int licenseCapacity;
 		try {
 			licenseCapacity = Integer.parseInt(this.props
@@ -102,7 +102,7 @@ public class TJServer implements TJServerInterface {
 			this.props = cm.writeProperties(configFilepath, "LicenseCapacity",
 					String.valueOf(licenseCapacity)); // Write back
 		}
-		
+
 		this.lm.setLicenseCapacity(licenseCapacity);
 	}
 
@@ -138,9 +138,10 @@ public class TJServer implements TJServerInterface {
 
 		// PM
 		this.pm.AddData("NumberOfReceivedQuery", 1);
-		
+
 		CallerMessage callerMessage = new CallerMessage("SOFTWARE-REUSE-TEAM3");
-		RequestResultMessage rrm = LicenseManager.getInstance().requestLicense(callerMessage);
+		RequestResultMessage rrm = LicenseManager.getInstance().requestLicense(
+				callerMessage);
 
 		// License
 		if (!rrm.isSuccess()) {
