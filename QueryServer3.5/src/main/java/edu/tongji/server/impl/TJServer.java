@@ -12,7 +12,7 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 
 import tj.reuse.ConfigComponent;
-import PM.PerformanceManager;
+import edu.tongji.PerformanceManager;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
