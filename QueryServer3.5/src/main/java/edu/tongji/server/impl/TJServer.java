@@ -12,11 +12,13 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 
 import tj.reuse.ConfigComponent;
-import License.license;
 import PM.PerformanceManager;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.license.caller.CallerMessage;
+import com.license.manager.LicenseManager;
+import com.license.manager.message.RequestResultMessage;
 
 import edu.tongji.FaultManagement;
 import edu.tongji.server.stub.TJServerInterface;
@@ -25,10 +27,10 @@ public class TJServer implements TJServerInterface {
 
 	private ArrayList<ArrayList<String>> studentInfo;
 
-	private ConfigComponent cm;
-	private FaultManagement fm;
-	private license li;
-	private PerformanceManager pm;
+	private ConfigComponent cm; // by Team 3
+	private FaultManagement fm; // by Team 3
+	private PerformanceManager pm; // by Team 10
+	private LicenseManager lm; // by Team 2
 
 	private Properties props;
 
@@ -89,6 +91,8 @@ public class TJServer implements TJServerInterface {
 	}
 
 	private void initLicense() {
+		this.lm = LicenseManager.getInstance();
+		
 		int licenseCapacity;
 		try {
 			licenseCapacity = Integer.parseInt(this.props
@@ -98,7 +102,8 @@ public class TJServer implements TJServerInterface {
 			this.props = cm.writeProperties(configFilepath, "LicenseCapacity",
 					String.valueOf(licenseCapacity)); // Write back
 		}
-		this.li = new license(licenseCapacity);
+		
+		this.lm.setLicenseCapacity(licenseCapacity);
 	}
 
 	private void initStudentInfo() {
@@ -133,9 +138,12 @@ public class TJServer implements TJServerInterface {
 
 		// PM
 		this.pm.AddData("NumberOfReceivedQuery", 1);
+		
+		CallerMessage callerMessage = new CallerMessage("SOFTWARE-REUSE-TEAM3");
+		RequestResultMessage rrm = LicenseManager.getInstance().requestLicense(callerMessage);
 
 		// License
-		if (!this.li.isProvide_service()) {
+		if (!rrm.isSuccess()) {
 			logger.error("Cannot provide service!");
 
 			// FM
