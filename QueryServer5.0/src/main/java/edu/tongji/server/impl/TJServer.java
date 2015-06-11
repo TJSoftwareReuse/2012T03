@@ -164,7 +164,7 @@ public class TJServer implements TJServerInterface {
 		this.pm.AddData("NumberOfProvidedService", 1);
 		this.pm.AddData("NumberOfReturnedMessage", 1);
 
-		if (team < 1 || team > 10) {
+		if (team < 1 || team > 11) {
 			ans.add("NON-EXISTENT");
 
 			return ans;
