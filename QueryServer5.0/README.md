@@ -12,9 +12,9 @@ $ cd 2012T03/QueryServer
 
 #### 1. 下载依赖包
 
-- [CM.jar](https://github.com/TJSoftwareReuse/DeliverComponents/raw/master/CM/T3/1.0/CM.jar) by [Team 3](https://github.com/TJSoftwareReuse/2012T03/tree/master/CM)
+- [PropertyUtil.jar](https://github.com/TJSoftwareReuse/DeliverComponents/blob/master/CM/T1/latest%20version/PropertyUtil.jar) by [Team 1](https://github.com/TJSoftwareReuse/2012T01)
 - [FM.jar](https://github.com/TJSoftwareReuse/2012T03/releases/download/v1.2/FM.jar) by [Team 3](https://github.com/TJSoftwareReuse/2012T03/tree/master/FM)
-- [License.jar](https://github.com/TJSoftwareReuse/DeliverComponents/raw/master/License/T10/1.0/License.jar) by [Team 10](https://github.com/TJSoftwareReuse/2012T10)
+- [LicenseG2_v1.1.jar](https://github.com/TJSoftwareReuse/DeliverComponents/blob/master/License/T2/1.1/LicenseG2_v1.1.jar) by [Team 2](https://github.com/TJSoftwareReuse/2012T02)
 - [PM.jar](https://github.com/TJSoftwareReuse/DeliverComponents/raw/master/PM/T10/1.0/PerformanceManager.jar) by [Team 10](https://github.com/TJSoftwareReuse/2012T10)
 - Gson 2.3.1
 - JUnit 4.11
@@ -23,9 +23,9 @@ $ cd 2012T03/QueryServer
 
 所有的依赖项均已上传至百度盘
 
-链接: <http://pan.baidu.com/s/1qWHpiG0>
+链接: <http://pan.baidu.com/s/1qWkfRB2>
 
-密码: gbib
+密码: b8k4
 
 ```bash
 $ cd 2012T03/QueryServer
