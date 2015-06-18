@@ -26,7 +26,6 @@ public class ConfigComponent implements ConfigInterface {
 					filePath));
 			props.load(in);
 			String value = props.getProperty(key);
-			System.out.println(key + value);
 			return value;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,7 +50,6 @@ public class ConfigComponent implements ConfigInterface {
 			while (en.hasMoreElements()) {
 				String key = (String) en.nextElement();
 				String Property = props.getProperty(key);
-				System.out.println(key + Property);
 			}
 			return props;
 		} catch (Exception e) {
