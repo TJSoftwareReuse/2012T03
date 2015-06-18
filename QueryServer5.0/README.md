@@ -102,3 +102,24 @@ _以[]表示数组_
 |第X组|X为相应的组号|
 |NO LICENSE|服务端无法提供服务|
 |NON-EXISTENT|所查询的学生姓名在名单上不存在|
+
+#### 输出文件说明
+
+1. `FM`输出
+    - 输出目录: `./log`
+    - 输出格式: 详见[FM Reuse Doc](https://github.com/TJSoftwareReuse/2012T03/blob/master/FM/FM-Reuse%20Document-cn.md#输出)
+    - 输出信息
+        |信息|说明|
+        |:-:|:-:|
+        |`Deny service!`|表示没有License，因而拒绝服务|
+        |`Provide service!`|提供服务|
+
+2. `PM`输出
+    - 输出目录: `./performance`
+    - 输出信息
+        |信息|说明|
+        |:-:|:-:|
+        |`NumberOfReceivedQuery`|收到的请求数量|
+        |`NumberOfDeniedService`|拒绝的服务次数|
+        |`NumberOfProvidedService`|提供的服务次数|
+        |`NumberOfReturnedMessage`|返回的消息数量|
