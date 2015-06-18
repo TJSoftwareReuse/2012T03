@@ -1,12 +1,16 @@
 package edu.tongji.server.impl;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
@@ -23,7 +27,8 @@ import edu.tongji.server.stub.TJServerInterface;
 
 public class TJServer implements TJServerInterface {
 
-	private ArrayList<ArrayList<String>> studentInfo;
+	private ArrayList<ArrayList<String>> studentInfo1;
+	private Properties studentInfo2;
 
 	private ConfigUtil cm; // by Team 3
 	private FaultManagement fm; // by Team 3
@@ -86,7 +91,8 @@ public class TJServer implements TJServerInterface {
 
 		int licenseCapacity;
 		try {
-			licenseCapacity = Integer.parseInt(this.cm.getProperty("LicenseCapacity"));
+			licenseCapacity = Integer.parseInt(this.cm
+					.getProperty("LicenseCapacity"));
 		} catch (NumberFormatException e) {
 			licenseCapacity = 100; // Default value
 			this.cm.setProperty("LicenseCapacity",
@@ -97,22 +103,43 @@ public class TJServer implements TJServerInterface {
 	}
 
 	private void initStudentInfo() {
-		String studentInfoFilepath = this.cm.getProperty("StudentInfoFilePath");
-		if (studentInfoFilepath == null) {
-			studentInfoFilepath = "./studentInfo.properties"; // Default value
-			this.cm.setProperty("StudentInfoFilePath", "./studentInfo.json"); // Write
+		// One
+		String studentInfoFilepath1 = this.cm
+				.getProperty("StudentInfoFilePath1");
+		if (studentInfoFilepath1 == null) {
+			studentInfoFilepath1 = "./studentInfo.json"; // Default value
+			this.cm.setProperty("StudentInfoFilePath1", studentInfoFilepath1); // Write
 																				// back
 		}
 
 		Gson gson = new Gson();
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(
-					studentInfoFilepath));
+					studentInfoFilepath1));
 			Type type = new TypeToken<ArrayList<ArrayList<String>>>() {
 			}.getType();
-			this.studentInfo = gson.fromJson(br, type);
+			this.studentInfo1 = gson.fromJson(br, type);
 
 			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		// Two
+		String studentInfoFilepath2 = this.cm
+				.getProperty("StudentInfoFilePath2");
+		if (studentInfoFilepath2 == null) {
+			studentInfoFilepath2 = "./studentInfo.properties"; // Default value
+			this.cm.setProperty("StudentInfoFilePath2", studentInfoFilepath2); // Write
+																				// back
+		}
+
+		this.studentInfo2 = new Properties();
+		try {
+			InputStream in = new BufferedInputStream(new FileInputStream(
+					studentInfoFilepath2));
+			this.studentInfo2.load(in);
+			in.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -170,9 +197,61 @@ public class TJServer implements TJServerInterface {
 			return ans;
 		}
 
-		ans = this.studentInfo.get(team - 1);
+		ans = this.studentInfo1.get(team - 1);
 
 		return ans;
+	}
+
+	public String query(String studentName) throws RemoteException {
+		String currentMessage = null;
+
+		logger.debug("Query <" + studentName + ">");
+
+		// PM
+		this.pm.AddData("NumberOfReceivedQuery", 1);
+
+		CallerMessage callerMessage = new CallerMessage("SOFTWARE-REUSE-TEAM3");
+		RequestResultMessage rrm = LicenseManager.getInstance().requestLicense(
+				callerMessage);
+
+		// License
+		if (!rrm.isSuccess()) {
+			logger.error("Cannot provide service!");
+
+			// FM
+			currentMessage = "Deny service!";
+			if (!currentMessage.equals(this.previousFMMessage)) {
+				this.fm.generateWarningMessage(currentMessage);
+				this.previousFMMessage = currentMessage;
+			}
+
+			// PM
+			this.pm.AddData("NumberOfDeniedService", 1);
+			this.pm.AddData("NumberOfReturnedMessage", 1);
+
+			return "NO LICENSE";
+		}
+
+		logger.info("Provide service!");
+
+		// FM
+		currentMessage = "Provide service!";
+		if (!currentMessage.equals(this.previousFMMessage)) {
+			this.fm.generateWarningMessage(currentMessage);
+			this.previousFMMessage = currentMessage;
+		}
+
+		// PM
+		this.pm.AddData("NumberOfProvidedService", 1);
+		this.pm.AddData("NumberOfReturnedMessage", 1);
+
+		String team = this.studentInfo2.getProperty(studentName);
+
+		if (team == null) {
+			return "NON-EXISTENT";
+		}
+
+		return this.studentInfo2.getProperty(studentName);
 	}
 
 }

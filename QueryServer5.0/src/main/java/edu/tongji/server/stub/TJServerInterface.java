@@ -7,5 +7,6 @@ import java.util.ArrayList;
 public interface TJServerInterface extends Remote {
 	
 	public ArrayList<String> query(int team) throws RemoteException;
+	public String query(String studentName) throws RemoteException;
 	
 }

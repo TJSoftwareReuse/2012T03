@@ -30,20 +30,24 @@
 
 ## Application
 
-#### [Query Server](https://github.com/TJSoftwareReuse/2012T03/tree/master/QueryServer)
-
-- 开发: 胡圣托
-- 文档: 张奕格，邓冰茜
-- 测试: 郑勇俊，代蒙
-
-#### [Query Server 2](https://github.com/TJSoftwareReuse/2012T03/tree/master/QueryServer2)
-
 - 开发: 胡圣托
 - 文档: 张奕格，邓冰茜
 - 测试：郑勇俊，代蒙
 
+#### [Query Server](https://github.com/TJSoftwareReuse/2012T03/tree/master/QueryServer)
+
+用户输入学生姓名，返回该学生所在组号
+
+#### [Query Server 2](https://github.com/TJSoftwareReuse/2012T03/tree/master/QueryServer2)
+
+[CHANGELOG](https://github.com/TJSoftwareReuse/2012T03/tree/master/QueryServer2/CHANGELOG.md)
+
 #### [Query Server 3.5](https://github.com/TJSoftwareReuse/2012T03/tree/master/QueryServer3.5)
 
+[CHANGELOG](https://github.com/TJSoftwareReuse/2012T03/tree/master/QueryServer3.5/CHANGELOG.md)
+
 #### [Query Server 5.0](https://github.com/TJSoftwareReuse/2012T03/tree/master/QueryServer5.0)
+
+[CHANGELOG](https://github.com/TJSoftwareReuse/2012T03/tree/master/QueryServer5.0/CHANGELOG.md)
 
 更换CM组件，由本组的CM换为第一组的CM，原因详见"构件选择"文件夹中说明文档

@@ -1,0 +1,1 @@
+1. 将原有的查询功能替换为`public ArrayList<String> query(int team) throws RemoteException;`，即输入组号，查询队员

@@ -1,5 +1,5 @@
-Query Server 2
-==============
+Query Server 3.5
+================
 
 ## 使用方法 (开发)
 
@@ -14,7 +14,7 @@ $ cd 2012T03/QueryServer
 
 - [CM.jar](https://github.com/TJSoftwareReuse/DeliverComponents/raw/master/CM/T3/1.0/CM.jar) by [Team 3](https://github.com/TJSoftwareReuse/2012T03/tree/master/CM)
 - [FM.jar](https://github.com/TJSoftwareReuse/2012T03/releases/download/v1.2/FM.jar) by [Team 3](https://github.com/TJSoftwareReuse/2012T03/tree/master/FM)
-- [License.jar](https://github.com/TJSoftwareReuse/DeliverComponents/raw/master/License/T10/1.0/License.jar) by [Team 10](https://github.com/TJSoftwareReuse/2012T10)
+- [License.jar](https://github.com/TJSoftwareReuse/DeliverComponents/raw/master/License/T10/1.0/License.jar) by [Team 2](https://github.com/TJSoftwareReuse/2012T02)
 - [PM.jar](https://github.com/TJSoftwareReuse/DeliverComponents/raw/master/PM/T10/1.0/PerformanceManager.jar) by [Team 10](https://github.com/TJSoftwareReuse/2012T10)
 - Gson 2.3.1
 - JUnit 4.11

@@ -54,14 +54,15 @@ $ cd lib
 ```java
 public interface TJServerInterface extends Remote {
     public ArrayList<String> query(int team) throws RemoteException;
+    public String query(String studentName) throws RemoteException;
 }
 ```
 
 过程如下: 
 
-1. 下载jar包
+1. 导出jar包
 
-    [TJServer2.jar](https://github.com/TJSoftwareReuse/2012T03/releases/download/v1.4/TJServer2.jar)
+    将项目中的`edu.tongji.server.stub`导出jar包，命名为`TJServer.jar`
 
 2. 新建Java项目
 3. 引入jar包
@@ -74,11 +75,13 @@ public interface TJServerInterface extends Remote {
     ArrayList<String> team = serverInterface.query(1); // 数字可更改
     ```
 
-    其中`localhost`可以替换为相应的服务端IP地址, `2015`为服务端指定好的端口号
+    其中`localhost`可以替换为相应的服务端IP地址，`2015`为服务端指定好的端口号
 
     另外，值得注意的是，此时服务端务必处于运行状态
 
 #### 返回值说明
+
+1. `public ArrayList<String> query(int team) throws RemoteException;`
 
 `query`函数的返回值有三种情况(均为`ArrayList<String>`类型)，如下:
 
@@ -89,3 +92,13 @@ _以[]表示数组_
 |[xxx, xxx, xxx, xxx]|xxx均为组员名字|
 |["NO LICENSE"]|服务端无法提供服务|
 |["NON-EXISTENT"]|所查询的组号不存在|
+
+2. `public String query(String studentName) throws RemoteException;`
+
+`query`函数的返回值有三种情况(均为`String`类型)，如下:
+
+|返回值|说明|
+|:---:|:--:|
+|第X组|X为相应的组号|
+|NO LICENSE|服务端无法提供服务|
+|NON-EXISTENT|所查询的学生姓名在名单上不存在|
